@@ -1,0 +1,27 @@
+<!-- 微信登陆js -->
+<!-- ① 先加载微信js -->
+<script src="../vendor/wechat/wxLogin.js"></script>
+<script>
+    <!-- ② 配置微信js参数 -->
+    // 验证,生成一个随机数,然后从到session里面,到第二个几面url中的state对比,相同登陆获取信息, 不相同失败,返回重新登陆
+    var state = Math.ceil(Math.random() * 1000);
+    localStorage.setItem("state", state);
+
+    var obj = new WxLogin({
+        // id innerHtml函数插入到dom节点
+        id: "login_container",
+        // 申请微信公众号,生成唯一的appid
+        appid: "wx48e15d9c512a19a1",
+        scope: "snsapi_login",
+        // 回调地址, 验证code, 然后返回在url地址中, 需要encodeURIComponent
+        redirect_uri: encodeURIComponent("http://www.beyondwinlaw.com/mix/gw/check.html"),
+        // 随机数, 验证
+        state: state,
+        // 生成微信文字的颜色
+        style: "black",
+        // 链接地址加载自定义css样式,覆盖微信默认样式, 这个css必须是网上地址, 本地测试无效
+        href: "http://www.beyondwinlaw.com/mix/gw/css/style.css"
+    });
+    /* ③ 扫描二维码以后 回调函数地址里面会配置 code/state */
+    console.log(obj);
+</script>
