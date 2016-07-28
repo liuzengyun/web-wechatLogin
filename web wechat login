@@ -20,7 +20,7 @@
         // 生成微信文字的颜色
         style: "black",
         // 链接地址加载自定义css样式,覆盖微信默认样式, 这个css必须是网上地址, 本地测试无效
-        href: "http://www.beyondwinlaw.com/mix/gw/css/style.css"
+        href: "https://www.beyondwinlaw.com/mix/gw/css/style.css"
     });
     /* ③ 扫描二维码以后 回调函数地址里面会配置 code/state */
     console.log(obj);
